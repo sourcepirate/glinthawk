@@ -1,7 +1,4 @@
-[package]
-name = "glinthhawk"
-version = "0.1.0"
-authors = ["sourcepirate <sathyanarrayanan@yandex.com>"]
-edition = "2018"
-
-[dependencies]
+[ workspace ]
+members = [
+    "src/proc_watcher"
+]
