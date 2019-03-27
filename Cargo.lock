@@ -78,6 +78,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 name = "proc_watcher"
 version = "0.1.0"
 dependencies = [
+ "chrono 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "procfs 0.4.7 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 

@@ -6,3 +6,4 @@ edition = "2018"
 
 [dependencies]
 procfs = "0.4.7"
+chrono = "0.4.6"
