@@ -1,7 +1,0 @@
-[package]
-name = "proc_parser"
-version = "0.1.0"
-authors = ["sourcepirate<sathyanarrayanan@yandex.com>"]
-
-[dependencies]
-regex = "1.1.0"
