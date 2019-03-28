@@ -11,9 +11,13 @@ extern crate procfs;
 use procfs::ProcResult;
 use std::collections::HashMap;
 use std::sync::mpsc::SendError;
+use std::sync::mpsc::Sender;
+use std::sync::{Arc, Mutex};
 
+pub mod load;
 pub mod memory;
 pub mod network;
+pub mod process;
 
 /// contains the assosiated mertics about the system
 /// which includes network and ram information
@@ -41,5 +45,19 @@ pub trait Watcher {
 }
 
 pub trait Shipper {
-    fn send(&self, x: Metric) -> Result<(), SendError<Metric>>;
+    fn send(&self, tx: Arc<Mutex<Sender<Metric>>>) -> Result<(), SendError<Metric>>;
+}
+
+impl Metric {
+    fn to_pair(&self) -> (String, f64) {
+        match &self {
+            &Metric::Memory(x, y) => (String::from("memory"), (*y / *x) as f64),
+            &Metric::TcpConn4(x) => (String::from("tcp4"), *x as f64),
+            &Metric::TcpConn6(x) => (String::from("tcp6"), *x as f64),
+            &Metric::UdpConn4(x) => (String::from("udp4"), *x as f64),
+            &Metric::UdpConn6(x) => (String::from("udp6"), *x as f64),
+            &Metric::ProcessCount(x) => (String::from("proccess"), *x as f64),
+            &Metric::Load(x) => (String::from("load"), *x as f64),
+        }
+    }
 }
