@@ -45,7 +45,7 @@ pub trait Watcher: Send {
 
 impl Metric {
     fn to_pair(&self) -> (String, f64) {
-        match &self {
+        match self {
             &Metric::Memory(x, y) => (String::from("memory"), (*y / *x) as f64),
             &Metric::TcpConn4(x) => (String::from("tcp4"), *x as f64),
             &Metric::TcpConn6(x) => (String::from("tcp6"), *x as f64),
@@ -53,6 +53,30 @@ impl Metric {
             &Metric::UdpConn6(x) => (String::from("udp6"), *x as f64),
             &Metric::ProcessCount(x) => (String::from("proccess"), *x as f64),
             &Metric::Load(x) => (String::from("load"), *x as f64),
+        }
+    }
+
+    fn get_metric_name(&self) -> String {
+        match self {
+            &Metric::Memory(_, _) => String::from("MemoryConsumption"),
+            &Metric::TcpConn4(_) => String::from("Tcp4Conn"),
+            &Metric::TcpConn6(_) => String::from("Tcp6Conn"),
+            &Metric::ProcessCount(_) => String::from("TotalProcess"),
+            &Metric::UdpConn4(_) => String::from("Udp4Conn"),
+            &Metric::UdpConn6(_) => String::from("Udp6Conn"),
+            &Metric::Load(_) => String::from("LoadAvg"),
+        }
+    }
+
+    fn get_metric_unit(&self) -> String {
+        match self {
+            &Metric::Memory(_, _) => String::from("Bytes"),
+            &Metric::TcpConn4(_) => String::from("Count"),
+            &Metric::TcpConn6(_) => String::from("Count"),
+            &Metric::ProcessCount(_) => String::from("Count"),
+            &Metric::UdpConn4(_) => String::from("Count"),
+            &Metric::UdpConn6(_) => String::from("Count"),
+            &Metric::Load(_) => String::from("Percent"),
         }
     }
 }

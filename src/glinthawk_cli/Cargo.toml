@@ -6,3 +6,6 @@ edition = "2018"
 
 [dependencies]
 proc_watcher = { path = "../proc_watcher" }
+rusoto_cloudwatch = "0.37.0"
+log = "0.4.6"
+reqwest = "0.9.12"
