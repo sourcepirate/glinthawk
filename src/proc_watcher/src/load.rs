@@ -1,4 +1,4 @@
-use super::{Metric, Shipper, Watcher};
+use super::{Metric, Watcher};
 use procfs::{LoadAverage, ProcResult};
 
 pub struct LoadWatcher;

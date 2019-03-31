@@ -2,7 +2,7 @@
 //! watching the memory consumption of a machine
 //!
 
-use super::{Metric, Shipper, Watcher};
+use super::{Metric, Watcher};
 use procfs::{meminfo, ProcResult};
 
 pub struct MemWatcher;

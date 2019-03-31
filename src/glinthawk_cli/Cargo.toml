@@ -1,9 +1,8 @@
 [package]
-name = "proc_watcher"
+name = "glinthawk_cli"
 version = "0.1.0"
 authors = ["sourcepirate <sathyanarrayanan@yandex.com>"]
 edition = "2018"
 
 [dependencies]
-procfs = "0.4.7"
-log = "0.4.6"
+proc_watcher = { path = "../proc_watcher" }

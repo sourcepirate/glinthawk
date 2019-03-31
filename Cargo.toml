@@ -1,4 +1,5 @@
 [ workspace ]
 members = [
-    "src/proc_watcher"
+    "src/proc_watcher",
+    "src/glinthawk_cli"
 ]

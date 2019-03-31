@@ -3,7 +3,6 @@
 //!
 use super::{Metric, Watcher};
 use procfs::{tcp, tcp6, udp, udp6, ProcResult};
-use std::sync::{Arc, Mutex};
 
 /// all protocol it watches for.
 pub enum Protocol {
@@ -25,7 +24,6 @@ impl Protocol {
 }
 
 pub struct NetworkWatcher {
-    version: u32,
     protocol: Protocol,
 }
 

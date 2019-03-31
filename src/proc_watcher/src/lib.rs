@@ -5,19 +5,18 @@
 //! inorder to do the time series analysis with
 //! the resource consumption data.
 
-extern crate chrono;
 extern crate procfs;
 
+#[macro_use]
+extern crate log;
+
 use procfs::ProcResult;
-use std::collections::HashMap;
-use std::sync::mpsc::SendError;
-use std::sync::mpsc::Sender;
-use std::sync::{Arc, Mutex};
 
 pub mod load;
 pub mod memory;
 pub mod network;
 pub mod process;
+pub mod runner;
 
 /// contains the assosiated mertics about the system
 /// which includes network and ram information
@@ -39,13 +38,9 @@ pub enum Metric {
 }
 
 /// simple trait to watch for particular metric
-pub trait Watcher {
+pub trait Watcher: Send {
     /// watch for metric
     fn watch(&self) -> ProcResult<Metric>;
-}
-
-pub trait Shipper {
-    fn send(&self, tx: Arc<Mutex<Sender<Metric>>>) -> Result<(), SendError<Metric>>;
 }
 
 impl Metric {
