@@ -46,13 +46,13 @@ pub trait Watcher: Send {
 impl Metric {
     fn to_pair(&self) -> (String, f64) {
         match self {
-            &Metric::Memory(x, y) => (String::from("memory"), (*y / *x) as f64),
-            &Metric::TcpConn4(x) => (String::from("tcp4"), *x as f64),
-            &Metric::TcpConn6(x) => (String::from("tcp6"), *x as f64),
-            &Metric::UdpConn4(x) => (String::from("udp4"), *x as f64),
-            &Metric::UdpConn6(x) => (String::from("udp6"), *x as f64),
-            &Metric::ProcessCount(x) => (String::from("proccess"), *x as f64),
-            &Metric::Load(x) => (String::from("load"), *x as f64),
+            &Metric::Memory(x, y) => (String::from("memory"), (y / x) as f64),
+            &Metric::TcpConn4(x) => (String::from("tcp4"), x as f64),
+            &Metric::TcpConn6(x) => (String::from("tcp6"), x as f64),
+            &Metric::UdpConn4(x) => (String::from("udp4"), x as f64),
+            &Metric::UdpConn6(x) => (String::from("udp6"), x as f64),
+            &Metric::ProcessCount(x) => (String::from("proccess"), x as f64),
+            &Metric::Load(x) => (String::from("load"), x as f64),
         }
     }
 
