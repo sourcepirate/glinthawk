@@ -44,7 +44,7 @@ pub trait Watcher: Send {
 }
 
 impl Metric {
-    fn to_pair(&self) -> (String, f64) {
+    pub fn to_pair(&self) -> (String, f64) {
         match self {
             &Metric::Memory(x, y) => (String::from("memory"), (y / x) as f64),
             &Metric::TcpConn4(x) => (String::from("tcp4"), x as f64),
@@ -56,7 +56,7 @@ impl Metric {
         }
     }
 
-    fn get_metric_name(&self) -> String {
+    pub fn get_metric_name(&self) -> String {
         match self {
             &Metric::Memory(_, _) => String::from("MemoryConsumption"),
             &Metric::TcpConn4(_) => String::from("Tcp4Conn"),
@@ -68,7 +68,7 @@ impl Metric {
         }
     }
 
-    fn get_metric_unit(&self) -> String {
+    pub fn get_metric_unit(&self) -> String {
         match self {
             &Metric::Memory(_, _) => String::from("Bytes"),
             &Metric::TcpConn4(_) => String::from("Count"),

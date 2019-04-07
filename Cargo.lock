@@ -381,6 +381,7 @@ dependencies = [
 name = "glinthawk_cli"
 version = "0.1.0"
 dependencies = [
+ "chrono 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "log 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "proc_watcher 0.1.0",
  "reqwest 0.9.13 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -840,6 +841,7 @@ version = "0.1.0"
 dependencies = [
  "log 0.4.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "procfs 0.4.7 (registry+https://github.com/rust-lang/crates.io-index)",
+ "rusoto_cloudwatch 0.37.0 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]

@@ -7,3 +7,4 @@ edition = "2018"
 [dependencies]
 procfs = "0.4.7"
 log = "0.4.6"
+rusoto_cloudwatch = "0.37.0"
