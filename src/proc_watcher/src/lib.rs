@@ -20,6 +20,7 @@ pub mod runner;
 
 /// contains the assosiated mertics about the system
 /// which includes network and ram information
+#[derive(Copy, Clone, Debug)]
 pub enum Metric {
     /// Monitors the RAM consumption
     Memory(u64, u64),

@@ -24,7 +24,7 @@ impl Protocol {
 }
 
 pub struct NetworkWatcher {
-    protocol: Protocol,
+    pub protocol: Protocol,
 }
 
 impl Watcher for NetworkWatcher {

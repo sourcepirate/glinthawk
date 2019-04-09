@@ -16,7 +16,7 @@ impl InstanceIP {
                 Ok(InstanceIP::Amazon(amazon))
             }
             Err(_) => {
-                let ideal = reqwest::get("http://ifconfig.me")?.text()?;
+                let ideal = reqwest::get("http://ifconfig.me/ip")?.text()?;
                 Ok(InstanceIP::Internal(ideal))
             }
         }
