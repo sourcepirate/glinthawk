@@ -30,5 +30,10 @@ echo "Tag Info: ${TRAVIS_TAG}"
 cd /release
 
 echo "Building a tar ball"
+if [ -z $TRAVIS_TAG ];
+then
+    export TRAVIS_TAG="stable"
+fi
+
 tar -cvf ${CRATE_NAME}-${TRAVIS_TAG}.tar.gz *
 
