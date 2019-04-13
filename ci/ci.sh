@@ -35,5 +35,5 @@ then
     export TRAVIS_TAG="stable"
 fi
 
-tar -cvf ${CRATE_NAME}-${TRAVIS_TAG}.tar.gz *
+sudo tar -cvf ${CRATE_NAME}-${TRAVIS_TAG}.tar.gz *
 
