@@ -19,7 +19,7 @@ cargo build --release
 
 echo "Pushing to release folder"
 
-cp target/release/glinthawk_cli /release
+sudo cp target/release/glinthawk_cli /release
 
 echo "Spitting out to github release"
 echo "Crate Name: ${CRATE_NAME}"
