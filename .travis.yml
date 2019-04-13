@@ -2,27 +2,22 @@ language: rust
 cache: cargo
 dist: trusty
 os:
-  - linux
-
+- linux
 rust:
-  - nightly
-  - stable
-
+- nightly
+- stable
 env:
   global:
-    - CRATE_NAME=glinthawk
-  
+  - CRATE_NAME=glinthawk
 before_script:
-  - chmod +x ./ci/ci.sh
-
+- chmod +x ./ci/ci.sh
 script:
-  - ./ci/ci.sh
-
+- "./ci/ci.sh"
 deploy:
   api_key:
-    secure: "eSxI8yqnJFO8NNAqt7RmVUVSft3OgwKWN0U1eAQQ79g7u1us1nY69S8qShPpG6xPjRxayPn24rZPa7xv26yIclOCbGeJBEnLuYvP5cNSw55w/lhruWK8l3y7caP8jBLV1bbiYVcmQx0JUWu/oPuHmLdd7wWpmVjzUhD+3a0tXcS10/YrNQ7qZ+xgDRz1J/6ZLB+KFs6x2nfwyMjEqcshfXi+p3CbBgy2FJBJ4IHcThaWc/ZrdgEXpqqTrP/b6sAQhpxfNBdu2U0fLBJNv9x3ecBvNtsJzj2k4lZvecIitMA8WK26Pz54QKso39K2zgiPCBV6HYxfGH0PynxT2nPMNSw6i12spvC1GKU7VgX6ZYuVug7RkjBYsrgjpwPsust5sn9cNCX7KThU1qfMY3J/SEabCOge3K28PGcCdcWHg7lhZ/MuxAYPOrlEnO3K2AVCj9wkQd9mdond6cNrFBLuXFipmhvH6c+YhwksEyKKYk8xjx+mA+gjP3OZV2pAjTbDPHpsWkWxqlmkeTK947JGco5KRzi/akfl0CJDwlF+DnnBaGmLeQ8eeUIFfUojylxKMWo9cjqdLxqF5TskW+m9G/4QANtEKe0c21XO7wdfG3GwyaCTK6HggX2WAtIIhQHcjME9uHPvW1xjFZ0tKax6Pu/L8B9vM8bHNCiPBYX730M="
+    secure: "E/SKzj7UALD4/F/renhCrKXzxVqzYB0obw93f69Q1v/0RftNw7nj4Rs5XgJRq2WTBGL2nv/qBSiZUc0QPoomrSPPIl2Sb20g69fF8X99qq/ALy267+NZjrLDipnYsCF0w/B65xNv9cw+koKxWkrwqom5mI2AzHqxw5gyGOa90gGd8U9H+AJciXE8NM8l2rC129DKsaWyWEEBu2gDUlnWrqWSKrevEaHuTqh5Isg7LE37DKcij4hpA9odedRLfd9rPAXjM6/sUmStBcXIDhKoDzSxjUc28DH+2YnvcQj2q4Hoo4XWmoAOHsY3aDA3QwbIqf9KI3Gi55PQfuvZJaPNCNgOmMYTGYsn8Ozw0xHnQkIegMeuOT7hEjlRpLXkYprRereJKYi3mfdBzP1uc0ftpLcZDWGoBXDdNMtu/TTJB7zC3RwdgVDP3eU6Jym45kBDfgQ8NrIcJjJSx1LL0SjEBbT3HQNdyhwHVTf0uZ+Vv3J9O7U3Pe/Jb5SQNNIz9PP2yKrQtGKRIFI+vnf+THz7Dkewd0BHsHWmoB9pFWxTyB5SLsMEA8na1M+R+RzqYOlSvHWEcmvk4xrH/afSVA5JMdaMEuE/cjRpQ54wzG5Vvib3mN8ugsCMjPIs8B9IDzUO14PgHlKgsvNqlgP75HmKZ3S5z8szJzBOdlMmMOydZJI="
   file_glob: true
-  file: /release/$CRATE_NAME-$TRAVIS_TAG.tar.gz
+  file: "/release/$CRATE_NAME-$TRAVIS_TAG.tar.gz"
   on:
     tags: true
   provider: releases
