@@ -32,7 +32,8 @@ cd /release
 echo "Building a tar ball"
 if [ -z $TRAVIS_TAG ];
 then
-    export TRAVIS_TAG="stable"
+    val=$(date +%s)
+    export TRAVIS_TAG="stable-$val"
 fi
 
 sudo tar -cvf ${CRATE_NAME}-${TRAVIS_TAG}.tar.gz *
