@@ -16,7 +16,6 @@ before_script:
   - chmod +x ./ci/ci.sh
 
 script:
-  - cargo test
   - ./ci/ci.sh
 
 deploy:

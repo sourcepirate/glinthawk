@@ -14,6 +14,7 @@ export OPENSSL_STATIC=1
 
 echo "Building binary"
 
+cargo test
 cargo build --release
 
 echo "Pushing to release folder"
