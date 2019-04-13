@@ -9,7 +9,6 @@ use rusoto_cloudwatch::PutMetricDataInput;
 use rusoto_core::credential::ChainProvider;
 use rusoto_core::request::{HttpClient, HttpConfig};
 use rusoto_core::Region;
-use std::error::Error;
 
 // Below function takes the ip address and metric information
 // To injest the data into the cloudwatch by converting it into
@@ -23,6 +22,7 @@ pub fn get_metric_info(ip: String, m: Metric) -> MetricDatum {
     let dim = vec![dim];
 
     let (_, val) = m.to_pair();
+    println!("{}", val);
 
     MetricDatum {
         value: Some(val),

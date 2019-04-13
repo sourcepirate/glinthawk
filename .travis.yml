@@ -1,0 +1,30 @@
+language: rust
+cache: cargo
+dist: trusty
+os:
+  - linux
+
+rust:
+  - nightly
+  - stable
+
+env:
+  global:
+    - CRATE_NAME=glinthawk
+  
+before_script:
+  - chmod +x ./ci/ci.sh
+
+script:
+  - cargo test
+  - ./ci/ci.sh
+
+deploy:
+  api_key:
+    secure: "eSxI8yqnJFO8NNAqt7RmVUVSft3OgwKWN0U1eAQQ79g7u1us1nY69S8qShPpG6xPjRxayPn24rZPa7xv26yIclOCbGeJBEnLuYvP5cNSw55w/lhruWK8l3y7caP8jBLV1bbiYVcmQx0JUWu/oPuHmLdd7wWpmVjzUhD+3a0tXcS10/YrNQ7qZ+xgDRz1J/6ZLB+KFs6x2nfwyMjEqcshfXi+p3CbBgy2FJBJ4IHcThaWc/ZrdgEXpqqTrP/b6sAQhpxfNBdu2U0fLBJNv9x3ecBvNtsJzj2k4lZvecIitMA8WK26Pz54QKso39K2zgiPCBV6HYxfGH0PynxT2nPMNSw6i12spvC1GKU7VgX6ZYuVug7RkjBYsrgjpwPsust5sn9cNCX7KThU1qfMY3J/SEabCOge3K28PGcCdcWHg7lhZ/MuxAYPOrlEnO3K2AVCj9wkQd9mdond6cNrFBLuXFipmhvH6c+YhwksEyKKYk8xjx+mA+gjP3OZV2pAjTbDPHpsWkWxqlmkeTK947JGco5KRzi/akfl0CJDwlF+DnnBaGmLeQ8eeUIFfUojylxKMWo9cjqdLxqF5TskW+m9G/4QANtEKe0c21XO7wdfG3GwyaCTK6HggX2WAtIIhQHcjME9uHPvW1xjFZ0tKax6Pu/L8B9vM8bHNCiPBYX730M="
+  file_glob: true
+  file: /release/$CRATE_NAME-$TRAVIS_TAG.tar.gz
+  on:
+    tags: true
+  provider: releases
+  skip_cleanup: true

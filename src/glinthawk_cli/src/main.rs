@@ -30,6 +30,6 @@ fn main() {
     println!("Ip address: {}", ip);
     for metric in rx {
         println!("Metric: {:?}", metric);
-        let measurement = cloudwatch::put(ip.clone(), metric);
+        cloudwatch::put(ip.clone(), metric);
     }
 }
