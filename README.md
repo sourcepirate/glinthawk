@@ -1,5 +1,7 @@
 ## Glinthawk
 
+[![Build Status](https://travis-ci.org/sourcepirate/glinthawk.svg?branch=master)](https://travis-ci.org/sourcepirate/glinthawk)
+
 Watches everything on the infra from sky.
 
 ![Glinthhawk](assets/glinthawk.png)
