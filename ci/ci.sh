@@ -2,7 +2,7 @@
 
 echo "Preparing Environment"
 
-sudo apt-get update && apt-get -y install pkg-config \
+sudo apt-get update && sudo apt-get -y install pkg-config \
 			       libssl-dev \
 			       build-essential \
 			       openssl
