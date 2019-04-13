@@ -16,7 +16,7 @@ script:
 deploy:
   api_key: "$GITHUB_OAUTH_TOKEN"
   file_glob: true
-  file: "/release/$CRATE_NAME-$TRAVIS_TAG.tar.gz"
+  file: "/release/$CRATE_NAME-$TRAVIS_TAG.*"
   provider: releases
   skip_cleanup: true
   on:
