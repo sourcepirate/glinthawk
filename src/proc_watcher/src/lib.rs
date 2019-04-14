@@ -74,7 +74,7 @@ impl Metric {
 
     pub fn get_metric_unit(&self) -> String {
         match self {
-            &Metric::Memory(_, _) => String::from("Bytes"),
+            &Metric::Memory(_, _) => String::from("Percent"),
             &Metric::TcpConn4(_) => String::from("Count"),
             &Metric::TcpConn6(_) => String::from("Count"),
             &Metric::ProcessCount(_) => String::from("Count"),
