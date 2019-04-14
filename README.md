@@ -21,6 +21,10 @@ Watches everything on the infra from sky.
 * Process Metrics
 * Open connections( TCP, UDP)
 
+## Cloudwatch Metrics
+
+![Cloudwatch](assets/graphs.png)
+
 ## License
 
 * MIT
