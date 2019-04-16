@@ -15,19 +15,16 @@ use proc_watcher::runner::run_watchers;
 pub const NAMESPACE: &'static str = "Glinthawk";
 
 fn main() {
-    let (rx, handle) = run_watchers();
+    let (rx, _handle) = run_watchers();
     println!("Discovering ip address");
     let ip = match InstanceIP::get() {
-        Ok(_ipaddr) => match _ipaddr {
-            InstanceIP::Amazon(r) => r.clone(),
-            InstanceIP::Internal(i) => i.clone(),
-        },
+        Ok(_ipaddr) => _ipaddr,
         Err(_) => {
             println!("Unable to discover instance!!");
             return;
         }
     };
-    println!("Ip address: {}", ip);
+    println!("Ip address: {:?}", ip);
     for metric in rx {
         println!("Metric: {:?}", metric);
         cloudwatch::put(ip.clone(), metric);
