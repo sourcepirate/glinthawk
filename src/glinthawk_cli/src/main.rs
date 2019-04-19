@@ -3,6 +3,8 @@ extern crate proc_watcher;
 extern crate reqwest;
 extern crate rusoto_cloudwatch;
 extern crate rusoto_core;
+extern crate rusoto_ec2;
+
 #[macro_use]
 extern crate log;
 

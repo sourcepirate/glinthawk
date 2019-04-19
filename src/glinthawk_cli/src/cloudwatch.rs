@@ -64,3 +64,4 @@ pub fn put(instance: InstanceIP, m: Metric) -> () {
         Err(_e) => println!("{}", _e),
     };
 }
+
