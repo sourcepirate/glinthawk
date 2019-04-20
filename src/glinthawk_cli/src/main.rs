@@ -19,6 +19,7 @@ pub const NAMESPACE: &'static str = "Glinthawk";
 fn main() {
     let (rx, _handle) = run_watchers();
     println!("Discovering ip address");
+
     let ip = match InstanceIP::get() {
         Ok(_ipaddr) => _ipaddr,
         Err(_) => {
@@ -26,9 +27,12 @@ fn main() {
             return;
         }
     };
+    let asg: String = ip.get_asg();
+    println!("Resolving topology: {}", asg);
+
     println!("Ip address: {:?}", ip);
     for metric in rx {
         println!("Metric: {:?}", metric);
-        cloudwatch::put(ip.clone(), metric);
+        cloudwatch::put(asg.clone(), ip.clone(), metric);
     }
 }
