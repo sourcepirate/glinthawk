@@ -1,6 +1,6 @@
 [package]
 name = "proc_watcher"
-version = "0.1.0"
+version = "0.1.5"
 authors = ["sourcepirate <sathyanarrayanan@yandex.com>"]
 edition = "2018"
 
