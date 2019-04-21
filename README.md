@@ -20,6 +20,8 @@ Watches everything on the infra from sky.
 * Memory(RAM) usage
 * Process Metrics
 * Open connections( TCP, UDP)
+* ASG Memory usage.
+* ASG Load Average.
 
 ## Cloudwatch Metrics
 
