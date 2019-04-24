@@ -49,7 +49,7 @@ impl Metric {
         match self {
             &Metric::Memory(x, y) => (
                 String::from("memory"),
-                (y as f64 / x as f64) * 100.00 as f64,
+               ( 1.0 as f64 -  (y as f64 / x as f64) ) * 100.00 as f64,
             ),
             &Metric::TcpConn4(x) => (String::from("tcp4"), x as f64),
             &Metric::TcpConn6(x) => (String::from("tcp6"), x as f64),
