@@ -32,7 +32,7 @@ pub fn run_watchers(interval: usize) -> (mpsc::Receiver<Metric>, JoinHandle<()>)
                     Err(_) => info!("Unable to unwrap result"),
                 };
             }
-            thread::sleep(time::Duration::new(interval, 0));
+            thread::sleep(time::Duration::new(interval as u64, 0));
         }
     });
     (rx, handle)
