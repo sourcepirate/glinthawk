@@ -10,7 +10,7 @@ use super::network::NetworkWatcher;
 use super::network::Protocol;
 use super::process::ProcessWatcher;
 
-pub fn run_watchers() -> (mpsc::Receiver<Metric>, JoinHandle<()>) {
+pub fn run_watchers(interval: usize) -> (mpsc::Receiver<Metric>, JoinHandle<()>) {
     let (tx, rx) = mpsc::channel::<Metric>();
     let handle = thread::spawn(move || {
         let watchers: Vec<Box<Watcher>> = vec![
@@ -32,7 +32,7 @@ pub fn run_watchers() -> (mpsc::Receiver<Metric>, JoinHandle<()>) {
                     Err(_) => info!("Unable to unwrap result"),
                 };
             }
-            thread::sleep(time::Duration::new(5, 0));
+            thread::sleep(time::Duration::new(interval as u64, 0));
         }
     });
     (rx, handle)
