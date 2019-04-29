@@ -44,7 +44,7 @@ struct Args {
 
 fn main() {
     let args: Args = Docopt::new(USAGE).and_then(|d| d.deserialize()).unwrap_or_else(|e| e.exit());
-    let interval: usize = args.flag_interval.unwrap_or_default(10);
+    let interval: usize = args.flag_interval.unwrap_or(10);
     let cred_provider = ChainProvider::new();
     let http_provider = HttpClient::new().expect("Failed new client");
     let client = CloudWatchClient::new_with(http_provider, cred_provider, Region::UsEast1);
