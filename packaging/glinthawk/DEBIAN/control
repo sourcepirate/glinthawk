@@ -1,0 +1,8 @@
+Package: glinthawk
+Version: 1.0.9
+Section: custom
+Priority: optional
+Architecture: all
+Essential: no
+Maintainer: codelantics.com
+Description: Push Proc metrics to cloud

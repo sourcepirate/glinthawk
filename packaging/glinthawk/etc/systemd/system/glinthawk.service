@@ -1,0 +1,13 @@
+[Unit]
+Description=Glinthawk Service
+After=network.target
+
+[Service]
+PrivateTmp=true
+PIDFile=/var/run/glinthawk/%i.pid
+ExecStart=/usr/bin/glinthawk_cli
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
