@@ -11,8 +11,10 @@ env:
   - CRATE_NAME=glinthawk
 before_script:
 - chmod +x ./ci/ci.sh
+- chmod +x ./packaging/build.sh
 script:
 - "./ci/ci.sh"
+- "cd packaging/ && ./build.sh"
 deploy:
   api_key: "$GITHUB_OAUTH_TOKEN"
   file_glob: true
