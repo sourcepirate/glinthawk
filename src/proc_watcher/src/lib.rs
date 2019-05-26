@@ -87,13 +87,13 @@ impl Metric {
 
     pub fn get_time_stamp(&self) -> String {
         match self {
-            &Metric::Memory(_, _, t) => t,
-            &Metric::TcpConn4(_, t) => t,
-            &Metric::TcpConn6(_, t) => t,
-            &Metric::ProcessCount(_, t) => t,
-            &Metric::UdpConn4(_, t) => t,
-            &Metric::UdpConn6(_, t) => t,
-            &Metric::Load(_, t) => t,
+            &Metric::Memory(_, _, ref t) => t.clone(),
+            &Metric::TcpConn4(_, ref t) => t.clone(),
+            &Metric::TcpConn6(_, ref t) => t.clone(),
+            &Metric::ProcessCount(_, ref t) => t.clone(),
+            &Metric::UdpConn4(_, ref t) => t.clone(),
+            &Metric::UdpConn6(_, ref t) => t.clone(),
+            &Metric::Load(_, ref t) => t.clone(),
         }
     }
 }
