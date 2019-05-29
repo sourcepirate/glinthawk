@@ -23,7 +23,7 @@ use rusoto_core::Region;
 use serde::Deserialize;
 
 pub const NAMESPACE: &'static str = "Glinthawk";
-const BUF_SIZE: usize = 15;
+const BUF_SIZE: usize = 60;
 const USAGE: &'static str = "
 Glinthawk Usage
 
@@ -63,13 +63,15 @@ fn main() {
 
     println!("Ip address: {:?}", ip);
     let mut counter = 0;
+    let mut metric_vector: Vec<Metric> = Vec::new();
     for metric in rx {
-        println!("Metric: {:?}", metric);
-        let mut meticVector: Vec<Metric> = Vec::new();
+        println!("{:?}", metric);
+        metric_vector.push(metric);
         counter += 1;
         if counter >= BUF_SIZE {
-            cloudwatch::put(asg.clone(), &client, ip.clone(), meticVector);
+            cloudwatch::put(asg.clone(), &client, ip.clone(), metric_vector);
             counter = 0;
+            metric_vector = Vec::new();
         }
     }
 }

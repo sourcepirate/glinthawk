@@ -29,7 +29,6 @@ pub fn get_instance_metric_info(asg: String, ip: InstanceIP, m: Vec<Metric>) -> 
     m.iter()
         .map(|x| {
             let (_, val) = x.to_pair();
-            println!("{}", val);
 
             MetricDatum {
                 value: Some(val),
@@ -54,7 +53,7 @@ pub fn get_asg_metric_info(asg: String, m: Vec<Metric>) -> Vec<MetricDatum> {
     };
     // let current_time = Utc::now().to_rfc3339_opts(SecondsFormat::Millis, true);
     let dimvec = vec![dim];
-    m.iter()
+    m.into_iter()
         .map(|x| {
             let (_, val) = x.to_pair();
             MetricDatum {
