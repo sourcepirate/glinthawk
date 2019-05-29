@@ -23,7 +23,7 @@ use rusoto_core::Region;
 use serde::Deserialize;
 
 pub const NAMESPACE: &'static str = "Glinthawk";
-const BUF_SIZE: usize = 60;
+const BUF_SIZE: usize = 15;
 const USAGE: &'static str = "
 Glinthawk Usage
 
