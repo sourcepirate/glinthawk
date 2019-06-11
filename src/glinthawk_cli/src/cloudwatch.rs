@@ -23,7 +23,6 @@ pub fn get_instance_metric_info(asg: String, ip: InstanceIP, m: Vec<Metric>) -> 
         name: "Asg".to_owned(),
         value: asg,
     };
-    // let current_time = Utc::now().to_rfc3339_opts(SecondsFormat::Millis, true);
     let dim = vec![dim1, dim2, dim3];
 
     m.iter()
@@ -51,7 +50,6 @@ pub fn get_asg_metric_info(asg: String, m: Vec<Metric>) -> Vec<MetricDatum> {
         name: "AutoScalingGroup".to_owned(),
         value: asg,
     };
-    // let current_time = Utc::now().to_rfc3339_opts(SecondsFormat::Millis, true);
     let dimvec = vec![dim];
     m.into_iter()
         .map(|x| {
